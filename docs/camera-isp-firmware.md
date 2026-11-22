@@ -99,9 +99,10 @@ d. **Vendor tag ops** — Set `get_vendor_tag_ops = camera_get_vendor_tag_ops` (
 
 ## Current Status
 
-- **Rear camera (S5K4HA):** Working — preview, capture, photo saving all functional via Open Camera
-- **Front camera (S5K5E9):** Not working — GPIO power-on fails (`exynos_fimc_is_sensor_gpio(1) fail(-19)`)
-- **Aperture (CameraX):** Crashes due to `lensFacingInteger: null` from vendor tag metadata. Open Camera (Camera2 API direct) works fine as alternative.
+- **Rear camera (S5K4HA):** Working — preview, capture, photo saving functional
+- **Aperture (CameraX):** Fixed — injected `ANDROID_LENS_FACING` in `CameraWrapper.cpp` to prevent `lensFacingInteger: null` NullPointerException
+- **Camera Provider Service:** Fixed — removed duplicate `vendor.samsung.hardware.camera.provider@4.0-service` to allow `android.hardware.camera.provider@2.5-service.universal7904` to bind `legacy/0` exclusively
+- **Front camera (S5K5E9):** GPIO power-on failure (`fail(-19)`) traced to driver falling back to non-existent PMIC regulator `FCAM_DVDD_1P2` when discrete core GPIO is not found; requires driver regulator fallback bypass or DT alignment
 - **Preview FPS:** Low — needs optimization of sensor mode / ISP pipeline configuration
 
 ## Lessons Learned
