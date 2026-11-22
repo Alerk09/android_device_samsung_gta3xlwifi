@@ -113,22 +113,3 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant.conf \
     $(LOCAL_PATH)/configs/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf 
 
-# camera
-PRODUCT_PACKAGES += \
-	vendor.samsung.hardware.camera.provider@4.0 \
-	vendor.samsung.hardware.camera.provider@4.0-legacy \
-	vendor.samsung.hardware.camera.provider@4.0-service \
-	vendor.samsung.hardware.camera.device@5.0 \
-	vendor.samsung.hardware.camera.device@5.0-impl 
-
-# camera stuff from wisdom device tree
-PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-legacy \
-    android.hardware.camera.provider@2.5-legacy \
-    camera.device@1.0-impl \
-    camera.device@3.2-impl \
-    camera.device@3.3-impl \
-    camera.device@3.4-impl \
-    camera.device@3.5-impl
-
-
